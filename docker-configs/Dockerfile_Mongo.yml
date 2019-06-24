@@ -12,7 +12,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: 123456
-
+    volumes:
+      - '/mnt/sda1/var/lib/docker/volumes/mongo:/data/db'
   mongo-express:
     image: mongo-express
     container_name: mongo-express-server
