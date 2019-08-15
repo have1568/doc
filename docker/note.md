@@ -141,7 +141,12 @@ rpm -ivh tree-1.6.0-10.el7.x86_64.rpm
 ```
 
  * 1、开放范围端口
+
 ``` 
+systemctl stop firewalld.service  #关闭防火墙
+
+systemctl disable firewalld.service  #禁止firewall开机启动
+
 firewall-cmd --permanent --zone=public --add-port=5904-5905/tcp
 ```
  
@@ -165,6 +170,20 @@ ssh-keygen -t rsa
 
 ssh-copy-id -i ~/.ssh/id_rsa.pub root@test.example.com
     
+```
+
+### 添加用户
+
+``` 
+useradd elk -d /opt/elk
+passwd elk
+
+#修改sudo权限
+
+vim /etc/sudoers
+
+elk     ALL=(ALL)       ALL
+
 ```
 
 

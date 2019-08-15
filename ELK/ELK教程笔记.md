@@ -27,21 +27,21 @@ su - elk
 #在/opt/elk目录下下载组件
 
 #下载组件
-wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.1.1-linux-x86_64.tar.gz
-wget https://artifacts.elastic.co/downloads/logstash/logstash-7.1.1.tar.gz
-wget https://artifacts.elastic.co/downloads/kibana/kibana-7.1.1-linux-x86_64.tar.gz
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.2.0-linux-x86_64.tar.gz
+wget https://artifacts.elastic.co/downloads/logstash/logstash-7.2.0.tar.gz
+wget https://artifacts.elastic.co/downloads/kibana/kibana-7.2.0-linux-x86_64.tar.gz
 
 #中文分词器（日志里有中文需要用到）
-wget https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.1.1/elasticsearch-analysis-ik-7.1.1.zip
+wget https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.1.1/elasticsearch-analysis-ik-7.2.0.zip
 
 #解压文件
-tar -xzvf /opt/elk/elasticsearch-7.1.1-linux-x86_64.tar.gz -C /opt/elk
-tar -xzvf /opt/elk/logstash-7.1.1.tar.gz -C /opt/elk
-tar -xzvf /opt/elk/kibana-7.1.1-linux-x86_64.tar.gz -C /opt/elk
-unzip elasticsearch-analysis-ik-7.1.1.zip -d elasticsearch-7.1.1/plugins/ik
+tar -xzvf /opt/elk/elasticsearch-7.2.0-linux-x86_64.tar.gz -C /opt/elk
+tar -xzvf /opt/elk/logstash-7.2.0.tar.gz -C /opt/elk
+tar -xzvf /opt/elk/kibana-7.2.0-linux-x86_64.tar.gz -C /opt/elk
+unzip elasticsearch-analysis-ik-7.2.0.zip -d elasticsearch-7.2.0/plugins/ik
 
 #以elk用户启动 elasticsearch (-d是后台启动的意思)
-/opt/elk/elasticsearch-7.1.1/bin/elasticsearch -d
+/opt/elk/elasticsearch-7.2.0/bin/elasticsearch -d
 
 #检查是否启动成功
 curl http://localhost:9200
@@ -49,7 +49,7 @@ curl http://localhost:9200
 
 #配置logstash
 
-/opt/elk/logstash-7.1.1/vendor/bundle/jruby/2.5.0/gems/logstash-patterns-core-4.1.2/patterns/grok-patterns
+/opt/elk/logstash-7.2.0/vendor/bundle/jruby/2.5.0/gems/logstash-patterns-core-4.1.2/patterns/grok-patterns
 
 #文件末尾加上
 #Nginx

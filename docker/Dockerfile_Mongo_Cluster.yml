@@ -1,0 +1,22 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+  mongo-master:
+    image: mongo
+    container_name: mongo-master
+    restart: always
+    ports:
+      - 27017:27017
+    command: mongod --replSet mongo-repliset
+    volumes:
+      - '/opt/data/mongo-master': /data/db'
+  mongo-slave:
+    image: mongo
+    container_name: mongo-slave
+    restart: always
+    ports:
+      - 27018:27017
+    command: mongod --replSet mongo-repliset
+    volumes:
+      - '/opt/data/mongo-slave': /data/db'
